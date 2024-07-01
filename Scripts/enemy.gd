@@ -16,6 +16,8 @@ func _process(delta):
 		velocity = lerp(velocity, Vector2.ZERO, 0.3)
 	global_position += velocity * SPEED * delta 
 	if hp<=0:
+		if Global.camera!=null:
+			Global.camera.screen_shake(80, 0.2)
 		if Global.node_creation_parent!=null:
 			var blood_particles_instance = Global.instance_node(blood_particles, global_position, Global.node_creation_parent)
 			blood_particles_instance.rotation = velocity.angle()
