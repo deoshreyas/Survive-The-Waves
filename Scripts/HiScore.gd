@@ -1,6 +1,7 @@
 extends Label
 
 func _ready():
+	Global.load_game()
 	text = str(Global.hi_score)
 	
 func _process(_delta):

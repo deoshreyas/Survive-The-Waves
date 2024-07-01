@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctmu0fa5r2bkp"]
+
+[ext_resource type="AudioStream" uid="uid://deq3ra7c5sqan" path="res://Sounds/background-music.wav" id="1_gupa2"]
+[ext_resource type="Script" path="res://Scripts/BackgroundMusic.gd" id="2_53fdl"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_gupa2")
+autoplay = true
+script = ExtResource("2_53fdl")
