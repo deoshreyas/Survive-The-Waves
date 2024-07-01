@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b57vpcqkq5kch"]
+[gd_scene load_steps=6 format=3 uid="uid://b57vpcqkq5kch"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_0b8ds"]
 [ext_resource type="PackedScene" uid="uid://4kwm1cpaveqp" path="res://Scenes/player.tscn" id="2_t0bxp"]
+[ext_resource type="FontFile" uid="uid://0067x8byqdmo" path="res://Fonts/Font.ttf" id="3_c0450"]
+[ext_resource type="Script" path="res://Scripts/Score.gd" id="4_i1av2"]
 
 [sub_resource type="Environment" id="Environment_qcooc"]
 background_mode = 3
@@ -20,5 +22,26 @@ environment = SubResource("Environment_qcooc")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="UINode" type="Node2D" parent="."]
+z_index = 20
+
+[node name="HUD" type="Control" parent="UINode"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Score" type="Label" parent="UINode/HUD"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 277.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_c0450")
+theme_override_font_sizes/font_size = 40
+text = "999"
+horizontal_alignment = 1
+script = ExtResource("4_i1av2")
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

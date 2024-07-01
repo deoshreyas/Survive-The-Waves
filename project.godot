@@ -27,6 +27,10 @@ window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+
 [input]
 
 btn_right={
@@ -63,3 +67,4 @@ shoot={
 
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+textures/canvas_textures/default_texture_filter=0
