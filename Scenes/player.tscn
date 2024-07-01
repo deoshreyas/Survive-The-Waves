@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://4kwm1cpaveqp"]
+
+[ext_resource type="Texture2D" uid="uid://b4fucnr0ux87i" path="res://Assets/Square.png" id="1_5bvmg"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_3bx2e"]
+
+[node name="Player" type="Sprite2D"]
+modulate = Color(0.980392, 0.133333, 0, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_5bvmg")
+script = ExtResource("2_3bx2e")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

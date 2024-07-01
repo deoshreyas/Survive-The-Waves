@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b57vpcqkq5kch"]
+
+[ext_resource type="Script" path="res://Scripts/World.gd" id="1_0b8ds"]
+[ext_resource type="PackedScene" uid="uid://4kwm1cpaveqp" path="res://Scenes/player.tscn" id="2_t0bxp"]
+[ext_resource type="PackedScene" uid="uid://d3du0628k3p0b" path="res://Scenes/enemy.tscn" id="3_c37pb"]
+
+[sub_resource type="Environment" id="Environment_qcooc"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.25
+glow_blend_mode = 0
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_0b8ds")
+
+[node name="Player" parent="." instance=ExtResource("2_t0bxp")]
+position = Vector2(320, 180)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qcooc")
+
+[node name="Enemy" parent="." instance=ExtResource("3_c37pb")]
+position = Vector2(127, 174)
