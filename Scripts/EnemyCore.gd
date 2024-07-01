@@ -23,6 +23,7 @@ func _process(_delta):
 		if Global.node_creation_parent!=null:
 			var blood_particles_instance = Global.instance_node(blood_particles, global_position, Global.node_creation_parent)
 			blood_particles_instance.rotation = velocity.angle()
+			blood_particles_instance.modulate = Color.from_hsv(current_colour.h, 0.75, current_colour.v)
 		queue_free()
 		Global.score += 1
 
@@ -41,7 +42,7 @@ func _on_hitbox_area_entered(area):
 		stunned = true 
 		$StunTimer.start()
 		area.get_parent().queue_free()
-		hp -= 1 
+		hp -= area.get_parent().damage
 		
 func _on_stun_timer_timeout():
 	modulate = current_colour

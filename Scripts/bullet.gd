@@ -5,6 +5,8 @@ var velocity = Vector2(1, 0)
 
 var look_once = true 
 
+var damage = 1
+
 func _process(delta):
 	if look_once:
 		look_at(get_global_mouse_position())
