@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cugswfv4dw46y"]
+
+[ext_resource type="PackedScene" uid="uid://t7xq5y0km7oq" path="res://Scenes/enemy.tscn" id="1_3gejs"]
+
+[node name="Enemy1" instance=ExtResource("1_3gejs")]
+modulate = Color(1, 1, 0, 1)
+speed = 120
+hp = 1
+knockback = 1200
+screen_shake = 90

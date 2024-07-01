@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b57vpcqkq5kch"]
+[gd_scene load_steps=11 format=3 uid="uid://b57vpcqkq5kch"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_0b8ds"]
+[ext_resource type="PackedScene" uid="uid://cugswfv4dw46y" path="res://Scenes/enemy_1.tscn" id="2_eiwbd"]
 [ext_resource type="PackedScene" uid="uid://4kwm1cpaveqp" path="res://Scenes/player.tscn" id="2_t0bxp"]
 [ext_resource type="FontFile" uid="uid://0067x8byqdmo" path="res://Fonts/Font.ttf" id="3_c0450"]
+[ext_resource type="PackedScene" uid="uid://duvxnvyehxd6i" path="res://Scenes/enemy_2.tscn" id="3_r0lyx"]
 [ext_resource type="Script" path="res://Scripts/Score.gd" id="4_i1av2"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="5_5kbm0"]
 [ext_resource type="Script" path="res://Scripts/HiScore.gd" id="5_gnfme"]
@@ -15,9 +17,12 @@ glow_blend_mode = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_6pf4p"]
 font_size = 25
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_0b8ds")
+enemy_scenes = Array[PackedScene]([ExtResource("2_eiwbd"), ExtResource("3_r0lyx")])
 
 [node name="Player" parent="." instance=ExtResource("2_t0bxp")]
 position = Vector2(320, 180)
