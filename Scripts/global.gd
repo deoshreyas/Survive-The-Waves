@@ -24,4 +24,4 @@ func load_game():
 		hi_score = save_file.get_32()
 	else:
 		hi_score = 0
-		save_game() 
+		save_game()

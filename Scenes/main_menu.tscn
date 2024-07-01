@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd1p3fsvg4j1"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_obaok"]
+[ext_resource type="Theme" uid="uid://txwy6uf8dm5h" path="res://Scenes/main_menu_theme.tres" id="2_8cc13"]
+
+[sub_resource type="Theme" id="Theme_nip7t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11b6n"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtje2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyk7m"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7a3y"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nip7t")
+script = ExtResource("1_obaok")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -109.5
+offset_right = 96.0
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8cc13")
+theme_override_constants/separation = 15
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../MusicButton")
+theme_override_styles/hover = SubResource("StyleBoxFlat_11b6n")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gtje2")
+text = "START"
+
+[node name="MusicButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_eyk7m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e7a3y")
+text = "MUSIC"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../MusicButton")
+focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eyk7m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e7a3y")
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

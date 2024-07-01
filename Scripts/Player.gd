@@ -40,6 +40,7 @@ func _on_timer_timeout():
 	
 func _exit_tree():
 	Global.player = null
+	Global.save_game()
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Enemy"):
